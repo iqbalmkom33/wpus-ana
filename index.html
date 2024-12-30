@@ -1,0 +1,53 @@
+<script>
+    var defaultLinkUang = "https://stoogneechu.net/4/8472619";
+    //var defaultArticle  = "http://localhost/gitwq/web-goodparbizid/articles/index2.html";
+    var defaultArticle  = "https://goodparenting.biz.id/articles";
+
+    function p(t){console.log(t);}   
+    function urlToText(url){
+        return url
+                .split("/").join("wqslash")
+                .split("?").join("wqmark")
+                .split("=").join("wqequal");
+    } 
+
+    function dataJson(slugKey){
+        let arrJson = {
+            "dream-apple": {
+                "no": "1",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527749",
+                "note": "active"
+            },
+            "happy-clear": {
+                "no": "2",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527751",
+                "note": "active"
+            },
+            "royal-bright": {
+                "no": "3",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527752",
+                "note": "active"
+            },
+        }
+
+        let urlUang = arrJson[slugKey];
+
+        let linkUrlUang = (urlUang == undefined) ? defaultLinkUang : arrJson[slugKey]["linkUang"]; 
+        //p(slugKey); p(linkUrlUang); 
+        return linkUrlUang;
+    }
+
+    let hostname = window.location.hostname;
+    let curUrl = window.location.href;
+    let slug = curUrl.split(hostname)[1];
+
+    let lu = dataJson(slug); // linkUang
+    //let lu = dataJson("happy-clear");
+    let luText = urlToText( lu );
+
+    let linkRed = defaultArticle+"/articles?lu="+luText;
+
+    //p(linkRed);
+    window.location.replace(linkRed);
+    
+</script>

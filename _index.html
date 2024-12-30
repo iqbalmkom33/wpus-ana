@@ -1,0 +1,76 @@
+<script>
+    var min = 0; var max = 6; // index article
+    var defaultArticle = "https://goodparenting.biz.id"; // main domain
+    var defaultLinkUang = "https://stoogneechu.net/4/8472619";
+
+    function p(t){console.log(t);}
+    function randomInteger() { return Math.floor(Math.random() * (max - min + 1)) + min;}    
+    function urlToText(url){
+        return url
+                .split("/").join("wqslash")
+                .split("?").join("wqmark")
+                .split("=").join("wqequal");
+    } 
+
+    // data JSON
+    function linkArticle(id = ""){
+        let useid = id == "" ? randomInteger(): id;
+        let article = [
+            "https://goodparenting.biz.id/transform-your-parenting",
+            "https://goodparenting.biz.id/the-ultimate-guide",
+            "https://goodparenting.biz.id/effective-patient-parenting",
+            "https://goodparenting.biz.id/10-essential-tips",
+            "https://goodparenting.biz.id/tips-helping-toddlers",
+            "https://goodparenting.biz.id/nurturing-growth",
+            "https://goodparenting.biz.id/boost-childs-skills"
+        ]
+
+        let getLink = article[useid] == undefined ? defaultArticle() : article[useid];
+
+        //p(useid); p(getLink);
+        return getLink;
+    }
+
+    function dataJson(slugKey){
+        let arrJson = {
+            "dream-apple": {
+                "no": "1",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527749",
+                "note": "active"
+            },
+            "happy-clear": {
+                "no": "2",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527751",
+                "note": "active"
+            },
+            "royal-bright": {
+                "no": "3",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527752",
+                "note": "active"
+            },
+        }
+
+        let urlUang = arrJson[slugKey];
+
+        let linkUrlUang = (urlUang == undefined) ? defaultLinkUang : arrJson[slugKey]["linkUang"]; 
+        //p(slugKey); p(linkUrlUang); 
+        return linkUrlUang;
+    }
+
+    let hostname = window.location.hostname;
+    let curUrl = window.location.href;
+    let slug = curUrl.split(hostname)[1];
+
+    let ar      = linkArticle(); // linkArticle
+    let arText  = urlToText( ar );
+
+    let lu = dataJson(slug); // linkUang
+    //let lu = dataJson("royal-bright1");
+    let luText = urlToText( lu );
+
+    let linkRed = defaultArticle+"/articles?ar="+arText+"&lu="+luText;
+
+    //p(linkRed);
+    window.location.replace(linkRed);
+    
+</script>
