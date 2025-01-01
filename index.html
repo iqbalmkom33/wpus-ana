@@ -1,7 +1,7 @@
 <script>
     var defaultLinkUang = "https://stoogneechu.net/4/8472619";
     //var defaultArticle  = "http://localhost/gitwq/web-goodparbizid/articles/index2.html";
-    var defaultArticle  = "https://goodparenting.biz.id/articles";
+    var defaultArticle  = "https://goodparenting.biz.id/articles/";
 
     function p(t){console.log(t);}   
     function urlToText(url){
@@ -45,7 +45,7 @@
     //let lu = dataJson("happy-clear");
     let luText = urlToText( lu );
 
-    let linkRed = defaultArticle+"/articles?lu="+luText;
+    let linkRed = defaultArticle+"?lu="+luText;
 
     //p(linkRed);
     window.location.replace(linkRed);
