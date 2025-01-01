@@ -1,6 +1,5 @@
 <script>
     var defaultLinkUang = "https://stoogneechu.net/4/8472619";
-    //var defaultArticle  = "http://localhost/gitwq/web-goodparbizid/articles/index2.html";
     var defaultArticle  = "https://goodparenting.biz.id/articles/";
 
     function p(t){console.log(t);}   
@@ -14,33 +13,29 @@
     function dataJson(slugKey){
         let arrJson = {
             "dream-apple": {
-                "no": "1",
-                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527749",
-                "note": "active"
+                "no": "1", "note": "active",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527749"                
             },
             "happy-clear": {
-                "no": "2",
-                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527751",
-                "note": "active"
+                "no": "2", "note": "active",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527751"                
             },
             "royal-bright": {
-                "no": "3",
-                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527752",
-                "note": "active"
+                "no": "3", "note": "active",
+                "linkUang": "https://stoogneechu.net/4/8472619?var=pro8472619_gal527752"                
             },
         }
 
         let urlUang = arrJson[slugKey];
-
         let linkUrlUang = (urlUang == undefined) ? defaultLinkUang : arrJson[slugKey]["linkUang"]; 
-        //p(slugKey); p(linkUrlUang); 
+        //p("slugKey="+slugKey); p("linkUrlUang="+linkUrlUang); 
         return linkUrlUang;
     }
 
     let hostname = window.location.hostname;
     let curUrl = window.location.href;
     let slug = curUrl.split(hostname)[1].split("/").join("");
-    p("hostname="+hostname);p("curUrl="+curUrl);p("slug="+slug);
+    //p("hostname="+hostname);p("curUrl="+curUrl);p("slug="+slug);
 
     let lu = dataJson(slug); // linkUang
     //let lu = dataJson("happy-clear");
@@ -48,7 +43,6 @@
 
     let linkRed = defaultArticle+"?lu="+luText;
 
-    p("linkRed="+linkRed);
-    //window.location.replace(linkRed);
-    
+    //p("linkRed="+linkRed);
+    window.location.replace(linkRed);
 </script>
