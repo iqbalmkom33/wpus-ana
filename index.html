@@ -40,6 +40,7 @@
     let hostname = window.location.hostname;
     let curUrl = window.location.href;
     let slug = curUrl.split(hostname)[1];
+    p("hostname="+hostname);p("curUrl="+curUrl);p("slug="+slug);
 
     let lu = dataJson(slug); // linkUang
     //let lu = dataJson("happy-clear");
@@ -47,7 +48,7 @@
 
     let linkRed = defaultArticle+"?lu="+luText;
 
-    //p(linkRed);
-    window.location.replace(linkRed);
+    p("linkRed="+linkRed);
+    //window.location.replace(linkRed);
     
 </script>
