@@ -545,18 +545,17 @@ config.license = '794a1eed5951a857a8f77e09e597a7f9ee6fece3';
                     var json = $.parseJSON(x);
                     if(json.render == 'offer') {
                         //window.location.href = offerUrl;
-                        //window.location.replace(offerUrl);
-                        p('redirect to:'+offerUrl);
+                        window.location.replace(offerUrl);
+                        //p('redirect to:'+offerUrl);
                     }else{
                         //$('.loader').addClass('hidden');
-                        p(json);
-
+                        //p(json);
                     }
               },
               error: function (xhr, ajaxOptions, thrownError) {
-                p('erorr ajax');
-                p(xhr.status);
-                p(thrownError);
+                //p('erorr ajax');
+                //p(xhr.status);
+                //p(thrownError);
               }
               //error: function(){$('.loader').addClass('hidden');}
           })
