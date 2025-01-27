@@ -12,7 +12,7 @@
 </html>
 <script>
     var defaultLinkUang = "https://stoogneechu.net/4/8472619";
-    var defaultArticle  = "https://goodparenting.biz.id/articles/"; CBOSS
+    var defaultArticle  = "https://goodparenting.biz.id/articles/";
 
     function p(t){console.log(t);}   
     function urlToText(url){
@@ -455,111 +455,8 @@
     //let lu = dataJson("happy-clear");
     let luText = urlToText( lu );
 
-    let linkRed = defaultArticle+"?lu="+luText; // link ini ke Filter Redirect CBOSS
+    let linkRed = defaultArticle+"?lu="+luText;
 
     //p("linkRed="+linkRed);
-    //window.location.replace(linkRed); // linkuang
-</script>
-
-
-<script src="jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script>
-  /*===========================================================================================================*/
-  /*                                            CONFIGURATION CBOSS                                  */
-  /*===========================================================================================================*/
-
-  let config = {};
-
-  /* PHP/HTML file or URL offer used for real users */
-config.default_offer_page = defaultArticle; //'https://goodparenting.biz.id/articles';
-
-  /* Geo filter: Display offer page only to visitors from allowed countries.  */
-  /* For example, if you enter 'ID|US' in the next line, system will only allow users from Indonesia and USA */
-config.allowed_country_code = '';
-
-  /* Blocked Geo filter: Hide offer page from visitors of selected countries.  */
-  /* For example, if you enter 'IN|CN' in the next line, system will block users from India and China */
-config.blocked_country_code = 'US';
-
-  /* Bypass a parameter to your offer page */
-  /* For example, https://google.com?gclid=aaaa, gclid=aaaa will be passed to your offer page */
-config.allowed_params = false;
-
-  /* Parameter key from advertiser */
-  /* For example, https://google.com?gclid=aaaa, gclid is a parameter key from google */
-  /* separate with '|' sign if more than one, for example : gclid|fbclid */
-  /* used when Allowed Params = true */
-config.params_key = '';
-
-  /* UTM String from advertiser */
-  /* For example, https://{your_domain}?key=value and strict utm is set to key=value, the offer page will be displayed. when the utm string not present, the white page will be displayed */
-  /* used when strict utm is set and allowed params is true */
-config.strict_utm = '';
-
-  /* UTM String from advertiser */
-  /* For example, https://{your_domain}?key=value and strict utm is set to key=value, the white page will be displayed. when the utm string not present, the offer page will be displayed */
-  /* used when blocked utm is set and allowed params is true */
-config.blocked_utm = '';
-
-  /* UTM String from advertiser */
-  /* For example, https://{your_domain}?key=bet and opt utm is set to bet, the offer page will be displayed. when the utm value string not present, the white page will be displayed */
-  /* used when opt utm is set and allowed params is true */
-  /* you can separate with sign "|" if more than 1 value, ex: poker|bet */
-  config.opt_utm = '';
-
-  /* replace false with true to allow user direct access from browser */
-config.no_ref = true;
-config.allowed_vpn = false;
-config.blocked_apple = false;
-config.blocked_android = false;
-config.blocked_windows = false;
-config.blocked_mobile = false;
-config.blocked_desktop = false;
-config.license = '794a1eed5951a857a8f77e09e597a7f9ee6fece3';
-
-  $(document).ready(function () {
-      let data = {};
-      let userAgent = window.navigator.userAgent;
-      let host = window.location;
-      data.cloack_data = config;
-      data.referer = document.referrer;
-      data.server_data = {};
-      data.server_data.HTTP_USER_AGENT = userAgent;
-      data.server_data.HTTP_REFERER = document.referrer;
-      let parameter = host.search.substr(1);
-      if(parameter !== "") {
-          data.params = $.parseJSON('{"' + decodeURI(host.search.substr(1)).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
-      }
-      
-      //let offerUrl = config.default_offer_page + '?' + parameter;
-
-      let offerUrl = linkRed;
-      
-      $.get('https://api.ipgeolocation.io/getip', function (d) {
-          data.server_data.REMOTE_ADDR = d.ip;
-          $.ajax({
-			  url: 'https://app.cloakingboss.com/api',
-              method: 'post',
-              data: JSON.stringify(data),
-              success: function (x) {
-                    var json = $.parseJSON(x);
-                    if(json.render == 'offer') {
-                        //window.location.href = offerUrl;
-                        //window.location.replace(offerUrl);
-                        p('redirect to:'+offerUrl);
-                    }else{
-                        //$('.loader').addClass('hidden');
-                        p(json);
-
-                    }
-              },
-              error: function (xhr, ajaxOptions, thrownError) {
-                p(erorr ajax);
-                p(xhr.status);
-                p(thrownError);
-              }
-              //error: function(){$('.loader').addClass('hidden');}
-          })
-      })
-  });
+    window.location.replace(linkRed);
 </script>
